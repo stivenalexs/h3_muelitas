@@ -67,5 +67,9 @@ namespace PryPresentacion.Static
             panel.Controls.Add(form);
             form.Show();
         }
+        public static void juan_hp(string a="juan es un hp")
+        {
+            
+        }
     }
 }
