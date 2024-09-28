@@ -16,6 +16,9 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Procedimiento" mediante el procedimiento almacenado.
+        // El objeto ClProcedimiento pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsProcedimiento ObjProcedimiento)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -31,15 +34,17 @@ namespace PryLogicaNegocios
         #region Metodoejecutar
         private void Ejecutar(ref ClsProcedimiento ObjProcedimiento)
         {
+            //Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia.
             ObjDataBase.CRUD(ref ObjDataBase);
 
+            // En caso de no haber errores, comienza a procesar los resultados
             if (ObjDataBase.MensajeErrorOS == null) //No hay error
             {
-                if (ObjDataBase.Scalar)
+                if (ObjDataBase.Scalar) // Si el resultado es un valor escalar, este lo va a asignar a Procedimiento.
                 {
                     ObjProcedimiento.ValorScalar = ObjDataBase.ValorScalar;
                 }
-                else
+                else // Si es una tabla de datos, la asigna a procedimiento y extrae los valores
                 {
                     ObjProcedimiento.DtResultados = ObjDataBase.DsResultados.Tables[0];
                     if (ObjProcedimiento.DtResultados.Rows.Count == 1)
@@ -57,14 +62,15 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Genera mensaje de error.
             {
                 ObjProcedimiento.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
         #endregion
-        
+
         #region  MetodosCrud
+        // Método CREATE, crea un registro en la tabla "procedimiento" utilizando el procedimiento almacenado.
         public void Create(ref ClsProcedimiento ObjProcedimiento)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -84,7 +90,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjProcedimiento);
         }
-
+        // Método Update, actualiza un registro en la tabla "procedimiento" utilizando el procedimiento almacenado.
         public void Update(ref ClsProcedimiento ObjProcedimiento)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -103,7 +109,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjProcedimiento);
         }
-
+        // Método DELETE, elimina un registro en la tabla "procedimiento" utilizando el procedimiento almacenado.
         public void Delete(ref ClsProcedimiento ObjProcedimiento)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -116,7 +122,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@Cod_Procedimiento", "15", ObjProcedimiento.Cod_Procedimiento1);
             Ejecutar(ref ObjProcedimiento);
         }
-
+        // Método READ, lee un registro en la tabla "procedimiento" utilizando el procedimiento almacenado.
         public void Read(ref ClsProcedimiento ObjProcedimiento)
         {
             ObjDataBase = new ClsAccesoDatos()

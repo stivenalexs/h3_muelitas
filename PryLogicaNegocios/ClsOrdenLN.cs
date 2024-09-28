@@ -16,6 +16,9 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Nomina" mediante el procedimiento almacenado.
+        // El objeto ClNomina se pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsOrden ObjOrden)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -31,15 +34,17 @@ namespace PryLogicaNegocios
         #region MetodoEjecutar
         private void Ejecutar(ref ClsOrden ObjOrden)
         {
+            // Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia.
             ObjDataBase.CRUD(ref ObjDataBase);
 
+            // En caso de no haber errores, comienza a procesar los resultados.
             if (ObjDataBase.MensajeErrorOS == null) //No hay error
             {
-                if (ObjDataBase.Scalar)
+                if (ObjDataBase.Scalar) // Si el resultado es un valor escalar, este lo va a asignar a Orden.
                 {
                     ObjOrden.ValorScalar = ObjDataBase.ValorScalar;
                 }
-                else
+                else // Si es una tabla de datos, la asigna a horario y extrae los valores
                 {
                     ObjOrden.DtResultados = ObjDataBase.DsResultados.Tables[0];
                     if (ObjOrden.DtResultados.Rows.Count == 1)
@@ -56,7 +61,7 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Se genera el mensaje de error
             {
                 ObjOrden.MensajeError = ObjDataBase.MensajeErrorOS;
             }
@@ -64,6 +69,7 @@ namespace PryLogicaNegocios
         #endregion
 
         #region  MetodosCrud
+        // Método CREATE, crea un registro en la tabla "Orden" utilizando el procedimiento almacenado.
         public void Create(ref ClsOrden ObjOrden)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -84,7 +90,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjOrden);
         }
-
+        // Método UPDATE, actualiza un registro en la tabla "Orden" utilizando el procedimiento almacenado.
         public void Update(ref ClsOrden ObjOrden)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -103,7 +109,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjOrden);
         }
-
+        // Método DELETE, elimina un registro en la tabla "Orden" utilizando el procedimiento almacenado.
         public void Delete(ref ClsOrden ObjOrden)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -116,7 +122,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@Cod_Orden", "15", ObjOrden.Cod_Orden1);
             Ejecutar(ref ObjOrden);
         }
-
+        // Método READ, lee un registro en la tabla "Orden" utilizando el procedimiento almacenado.
         public void Read(ref ClsOrden ObjOrden)
         {
             ObjDataBase = new ClsAccesoDatos()

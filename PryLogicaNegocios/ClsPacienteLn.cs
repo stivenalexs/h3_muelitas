@@ -17,6 +17,9 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Paciente" mediante el procedimiento almacenado.
+        // El objeto ClsPaciente se pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsPaciente ObjPaciente)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -32,15 +35,17 @@ namespace PryLogicaNegocios
 
         private void Ejecutar(ref ClsPaciente ObjPaciente)
         {
+            // Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia.
             ObjDataBase.CRUD(ref ObjDataBase);
 
+            // En caso de no haber errores, comienza a procesar los resultados.
             if (ObjDataBase.MensajeErrorOS == null) //No hay error
             {
-                if (ObjDataBase.Scalar)
+                if (ObjDataBase.Scalar) // Si el resultado es un valor escalar, este lo va a asignar a Paciente.
                 {
                     ObjPaciente.ValorScalar = ObjDataBase.ValorScalar;
                 }
-                else
+                else // Si es una tabla de datos, la asigna a horario y extrae los valores
                 {
                     ObjPaciente.DtResultados = ObjDataBase.DsResultados.Tables[0];
                     if (ObjPaciente.DtResultados.Rows.Count == 1)
@@ -54,13 +59,14 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Genera mensaje de error.
             {
                 ObjPaciente.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
 
         #region  MetodosCrud
+        // Método CREATE, crea un registro en la tabla "Paciente" utilizando el procedimiento almacenado.
         public void Create(ref ClsPaciente ObjPaciente)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -76,7 +82,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjPaciente);
         }
-
+        // Método UPDATE, actualiza un registro en la tabla "Paciente" utilizando el procedimiento almacenado.
         public void Update(ref ClsPaciente ObjPaciente)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -92,7 +98,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjPaciente);
         }
-
+        // Método DELETE, elimina un registro en la tabla "Paciente" utilizando el procedimiento almacenado.
         public void Delete(ref ClsPaciente ObjPaciente)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -105,7 +111,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@Doc_Paciente", "15", ObjPaciente.Documento_Pa1);
             Ejecutar(ref ObjPaciente);
         }
-
+        // Método READ, lee un registro en la tabla "Paciente" utilizando el procedimiento almacenado.
         public void Read(ref ClsPaciente ObjPaciente)
         {
             ObjDataBase = new ClsAccesoDatos()

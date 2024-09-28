@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PryLogicaNegocios
 {
-    // holaaaaaaaaaaaaaa
+    
     public class ClsAdministradorLn
     {
         #region VariablePrivada
@@ -17,6 +17,10 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Administrador" mediante el procedimiento almacenado.
+        // El objeto ClsAdministrador se pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsAdministrador ObjAdministrador)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -32,14 +36,18 @@ namespace PryLogicaNegocios
 
         private void Ejecutar(ref ClsAdministrador ObjAdministrador)
         {
+            // Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia.
             ObjDataBase.CRUD(ref ObjDataBase);
 
-            if (ObjDataBase.MensajeErrorOS == null) //No hay error
+            // En caso de no haber errores, comienza a procesar los resultados.
+            if (ObjDataBase.MensajeErrorOS == null) 
             {
+                // Si el resultado es un valor escalar, este lo va a asignar al administrador.
                 if (ObjDataBase.Scalar)
                 {
                     ObjAdministrador.ValorScalar = ObjDataBase.ValorScalar;
                 }
+                // Si es una tabla de datos, la asigna al administrador y extrae los valores
                 else
                 {
                     ObjAdministrador.DtResultados = ObjDataBase.DsResultados.Tables[0];
@@ -53,13 +61,14 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Se genera el mensaje de error
             {
                 ObjAdministrador.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
 
         #region  MetodosCrud
+        // Método CREATE, crea un registro en la tabla "Administrador" utilizando el procedimiento almacenado.
         public void Create(ref ClsAdministrador ObjAdministrador)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -74,7 +83,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjAdministrador);
         }
-
+        // Método UPDATE, actualiza un registro en la tabla "Administrador" utilizando el procedimiento almacenado.
         public void Update(ref ClsAdministrador ObjAdministrador)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -89,7 +98,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjAdministrador);
         }
-
+        // Método DELETE , elimina un registro en la tabla "Administrador" utilizando el procedimiento almacenado.
         public void Delete(ref ClsAdministrador ObjAdministrador)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -103,6 +112,7 @@ namespace PryLogicaNegocios
             Ejecutar(ref ObjAdministrador);
         }
 
+        // Método READ, lee un registro en la tabla "Administrador" utilizando el procedimiento almacenado.
         public void Read(ref ClsAdministrador ObjAdministrador)
         {
             ObjDataBase = new ClsAccesoDatos()

@@ -16,6 +16,9 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Nomina" mediante el procedimiento almacenado.
+        // El objeto ClNomina se pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsNomina ObjNomina)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -31,15 +34,17 @@ namespace PryLogicaNegocios
 
         private void Ejecutar(ref ClsNomina ObjNomina)
         {
+            // Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia.
             ObjDataBase.CRUD(ref ObjDataBase);
 
+            // En caso de no haber errores, comienza a procesar los resultados.
             if (ObjDataBase.MensajeErrorOS == null) //No hay error
             {
-                if (ObjDataBase.Scalar)
+                if (ObjDataBase.Scalar) // Si el resultado es un valor escalar, este lo va a asignar a la Nómima.
                 {
                     ObjNomina.ValorScalar = ObjDataBase.ValorScalar;
                 }
-                else
+                else // Si es una tabla de datos, la asigna a horario y extrae los valores
                 {
                     ObjNomina.DtResultados = ObjDataBase.DsResultados.Tables[0];
                     if (ObjNomina.DtResultados.Rows.Count == 1)
@@ -57,13 +62,14 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Se genera el mensaje de error
             {
                 ObjNomina.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
 
         #region  MetodosCrud
+        // Método CREATE, crea un registro en la tabla "Nomina" utilizando el procedimiento almacenado.
         public void Create(ref ClsNomina ObjNomina)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -81,7 +87,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjNomina);
         }
-
+        // Método UPDATE, actualiza un registro en la tabla "Nomina" utilizando el procedimiento almacenado.
         public void Update(ref ClsNomina ObjNomina)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -99,7 +105,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjNomina);
         }
-
+        // Método DELETE, elimina un registro en la tabla "Nomina" utilizando el procedimiento almacenado.
         public void Delete(ref ClsNomina ObjNomina)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -112,7 +118,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@ID_Nomina", "15", ObjNomina.ID_Nomina1);
             Ejecutar(ref ObjNomina);
         }
-
+        // Método READ, lee un registro en la tabla "Nomina" utilizando el procedimiento almacenado.
         public void Read(ref ClsNomina ObjNomina)
         {
             ObjDataBase = new ClsAccesoDatos()

@@ -16,6 +16,9 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Horario" mediante el procedimiento almacenado.
+        // El objeto ClsHorario se pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsHorario ObjHorario)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -31,15 +34,17 @@ namespace PryLogicaNegocios
 
         private void Ejecutar(ref ClsHorario ObjHorario)
         {
+            // Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia.
             ObjDataBase.CRUD(ref ObjDataBase);
 
+            // En caso de no haber errores, comienza a procesar los resultados.
             if (ObjDataBase.MensajeErrorOS == null) //No hay error
             {
-                if (ObjDataBase.Scalar)
+                if (ObjDataBase.Scalar) // Si el resultado es un valor escalar, este lo va a asignar al Horario.
                 {
                     ObjHorario.ValorScalar = ObjDataBase.ValorScalar;
                 }
-                else
+                else // Si es una tabla de datos, la asigna a horario y extrae los valores
                 {
                     ObjHorario.DtResultados = ObjDataBase.DsResultados.Tables[0];
                     if (ObjHorario.DtResultados.Rows.Count == 1)
@@ -54,13 +59,14 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Muestra de Mensaje de error.
             {
                 ObjHorario.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
 
         #region  MetodosCrud
+        // Método CREATE, crea un registro en la tabla "Horario." utilizando el procedimiento almacenado.
         public void Create(ref ClsHorario ObjHorario)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -77,7 +83,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjHorario);
         }
-
+        // Método UPDATE, actualiza un registro en la tabla "Horario." utilizando el procedimiento almacenado.
         public void Update(ref ClsHorario ObjHorario)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -94,7 +100,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjHorario);
         }
-
+        // Método DELETE, elimina un registro en la tabla "Horario." utilizando el procedimiento almacenado.
         public void Delete(ref ClsHorario ObjHorario)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -107,7 +113,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@ID_Horario", "15", ObjHorario.ID_Horario1);
             Ejecutar(ref ObjHorario);
         }
-
+        // Método READ, lee un registro en la tabla "Horario." utilizando el procedimiento almacenado.
         public void Read(ref ClsHorario ObjHorario)
         {
             ObjDataBase = new ClsAccesoDatos()

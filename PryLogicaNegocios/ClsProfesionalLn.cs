@@ -18,6 +18,9 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Procedimiento" mediante el procedimiento almacenado.
+        // El objeto ClsProfesional pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsProfecional ObjProfesional)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -33,15 +36,17 @@ namespace PryLogicaNegocios
 
         private void Ejecutar(ref ClsProfecional ObjProfesional)
         {
+            //Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia
             ObjDataBase.CRUD(ref ObjDataBase);
 
+            // En caso de no haber errores, comienza a procesar los resultados
             if (ObjDataBase.MensajeErrorOS == null) //No hay error
             {
-                if (ObjDataBase.Scalar)
+                if (ObjDataBase.Scalar) // Si el resultado es un valor escalar, este lo va a asignar a Profesional.
                 {
                     ObjProfesional.ValorScalar = ObjDataBase.ValorScalar;
                 }
-                else
+                else // Si es una tabla de datos, la asigna a profesional y extrae los valores
                 {
                     ObjProfesional.DtResultados = ObjDataBase.DsResultados.Tables[0];
                     if (ObjProfesional.DtResultados.Rows.Count == 1)
@@ -55,7 +60,7 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Genera Mensaje de error.
             {
                 ObjProfesional.MensajeError = ObjDataBase.MensajeErrorOS;
             }
@@ -63,33 +68,34 @@ namespace PryLogicaNegocios
 
         private void Ejecutar_Horario(ref ClsProfecional ObjProfesional)
         {
-            ObjDataBase.CRUD(ref ObjDataBase);
+            ObjDataBase.CRUD(ref ObjDataBase); // Realiza la operación CRUD en la base de datos.
 
             if (ObjDataBase.MensajeErrorOS == null) //No hay error
             {
                 if (ObjDataBase.Scalar)
                 {
-                    ObjProfesional.ValorScalar = ObjDataBase.ValorScalar;
+                    ObjProfesional.ValorScalar = ObjDataBase.ValorScalar; // Asigna el valor escalar.
                 }
-                else
+                else // Si hay resultados en forma de tabla asigna los resultados
                 {
-                    ObjProfesional.DtResultados = ObjDataBase.DsResultados.Tables[0];
-                    if (ObjProfesional.DtResultados.Rows.Count == 1)
+                    ObjProfesional.DtResultados = ObjDataBase.DsResultados.Tables[0]; // Asigna los resultados
+                    if (ObjProfesional.DtResultados.Rows.Count == 1) // Si hay un solo resultado
                     {
                         foreach (DataRow item in ObjProfesional.DtResultados.Rows)
                         {
-                            ObjProfesional.Horario1 = item["ID_Horario"].ToString();
+                            ObjProfesional.Horario1 = item["ID_Horario"].ToString();  // Extrae el ID_Horario.
                         }
                     }
                 }
             }
-            else
+            else // Genera mensaje de error.
             {
                 ObjProfesional.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
 
         #region  MetodosCrud
+        // Método CREATE, crea un registro en la tabla "profesional" utilizando el procedimiento almacenado.
         public void Create(ref ClsProfecional ObjProfesional)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -103,7 +109,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@Horario", "15", ObjProfesional.Horario1);
             Ejecutar(ref ObjProfesional);
         }
-
+        // Método UPDATE, actualiza un registro en la tabla "profesional" utilizando el procedimiento almacenado.
         public void Update(ref ClsProfecional ObjProfesional)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -119,7 +125,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjProfesional);
         }
-
+        // Método DELETE, elimina un registro en la tabla "profesional" utilizando el procedimiento almacenado.
         public void Delete(ref ClsProfecional ObjProfesional)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -132,7 +138,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@Doc_Pro", "15", ObjProfesional.Documento_Pro1);
             Ejecutar(ref ObjProfesional);
         }
-
+        // Método READ, lee un registro en la tabla "profesional" utilizando el procedimiento almacenado.
         public void Read(ref ClsProfecional ObjProfesional)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -149,6 +155,8 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodosEspecificos
+        //Asigna un horario a un profesional usando el procedimiento almacenado `SP_Asignar_Horario`.
+
         public void Asignar_Horario(ref ClsProfecional ObjProfesional, string Especialidad)
         {
             ObjDataBase = new ClsAccesoDatos()

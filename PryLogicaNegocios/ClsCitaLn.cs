@@ -16,6 +16,9 @@ namespace PryLogicaNegocios
         #endregion
 
         #region MetodoIndex
+        // Método que configura la consulta a la base de datos para obtener información
+        // De la tabla "Cita" mediante el procedimiento almacenado.
+        // El objeto ClsCita se pasa por referencia y será actualizado con los datos obtenidos.
         public void Index(ref ClsCita ObjCita)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -31,14 +34,18 @@ namespace PryLogicaNegocios
 
         private void Ejecutar(ref ClsCita ObjCita)
         {
+            // Ejecuta la operación CRUD en la base de datos, pasando por el objeto ObjDatabase como referencia.
             ObjDataBase.CRUD(ref ObjDataBase);
 
-            if (ObjDataBase.MensajeErrorOS == null) //No hay error
+            // En caso de no haber errores, comienza a procesar los resultados.
+            if (ObjDataBase.MensajeErrorOS == null) 
             {
+                // Si el resultado es un valor escalar, este lo va a asignar al Cita.
                 if (ObjDataBase.Scalar)
                 {
                     ObjCita.ValorScalar = ObjDataBase.ValorScalar;
                 }
+                // Si es una tabla de datos, la asigna a cita y extrae los valores
                 else
                 {
                     ObjCita.DtResultados = ObjDataBase.DsResultados.Tables[0];
@@ -56,13 +63,15 @@ namespace PryLogicaNegocios
                     }
                 }
             }
-            else
+            else // Se genera el mensaje de error
             {
                 ObjCita.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
 
         #region  MetodosCrud
+
+        // Método CREATE, crea un registro en la tabla "Cita" utilizando el procedimiento almacenado.
         public void Create(ref ClsCita ObjCita)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -81,7 +90,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjCita);
         }
-
+        // Método Update, actualiza un registro en la tabla "Cita" utilizando el procedimiento almacenado.
         public void Update(ref ClsCita ObjCita)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -100,7 +109,7 @@ namespace PryLogicaNegocios
 
             Ejecutar(ref ObjCita);
         }
-
+        // Método DELETE, elimina un registro en la tabla "Cita" utilizando el procedimiento almacenado.
         public void Delete(ref ClsCita ObjCita)
         {
             ObjDataBase = new ClsAccesoDatos()
@@ -113,7 +122,7 @@ namespace PryLogicaNegocios
             ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "15", ObjCita.Cod_Cita1);
             Ejecutar(ref ObjCita);
         }
-
+        // Método READ, lee un registro en la tabla "Cita" utilizando el procedimiento almacenado.
         public void Read(ref ClsCita ObjCita)
         {
             ObjDataBase = new ClsAccesoDatos()
