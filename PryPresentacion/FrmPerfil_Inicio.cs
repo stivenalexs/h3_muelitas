@@ -48,39 +48,71 @@ namespace PryPresentacion
                 pb_foto.Image = Image.FromFile(dir);
             }
             lb_bien.Text = $"Bienvenido {persona.Nombre}";
+            //ocultar botones dependiendo de tipo de usuario
+            if (paciente.Tipo_documento1 != null)
+            {
+                btn_citasp.Visible = false;
+                btn_citasp.Enabled = false;
+                btn_seguimiento.Visible = false;
+                btn_seguimiento.Enabled = false;
+                btn_Procedimiento.Visible = false;
+                btn_Procedimiento.Enabled = false;
+            }
+
+            else if (profesional.Horario1 != null)
+            {
+                lb_c.Visible = false;
+                btn_pagos.Visible = false;
+                btn_pagos.Enabled = false;
+                btn_agendar.Visible = false;
+                btn_agendar.Enabled = false;
+                btn_reprogramar.Visible = false;
+                btn_reprogramar.Enabled = false;
+                btn_cancelar.Visible = false;
+                btn_cancelar.Enabled = false;
+            }
         }
 
         private void btn_pagos_Click(object sender, EventArgs e)
         {
-            //if (indentificar() == 1)
-            //{
-            //    cita cita = new cita(inicio, paciente);
-            //    DB.AbrirFormulario(cita, inicio);
-            //}
-            //else if (indentificar() == 2)
-            //{
-            //    lista_pacientes lista = new lista_pacientes(profesional, inicio);
-            //    DB.AbrirFormulario(lista, inicio);
-            //}
+            FrmPagos frmPagos = new FrmPagos();
+            ClsControl.AbrirFormulario(frmPagos, panel);
         }
 
         private void btn_Procedimiento_Click(object sender, EventArgs e)
         {
-            //if (indentificar() == 1)
-            //{
-            //    Historial_clinico historial = new Historial_clinico(paciente);
-            //    DB.AbrirFormulario(historial, inicio);
-            //}
-            //else if (indentificar() == 2)
-            //{
-            //    Historial_clinico historial = new Historial_clinico(profesional);
-            //    DB.AbrirFormulario(historial, inicio);
-            //}
+            FrmProcedimiento FrmProcedimiento = new FrmProcedimiento();
+            ClsControl.AbrirFormulario(FrmProcedimiento, panel);
         }
 
         private void btn_seguimiento_Click(object sender, EventArgs e)
         {
+            FrmHistorialClinico FrmListaPaciente = new FrmHistorialClinico();
+            ClsControl.AbrirFormulario(FrmListaPaciente, panel);
+        }
 
+        private void btn_agendar_Click(object sender, EventArgs e)
+        {
+            FrmAgendar frmAgendar = new FrmAgendar();
+            ClsControl.AbrirFormulario(frmAgendar, panel);
+        }
+
+        private void btn_reprogramar_Click(object sender, EventArgs e)
+        {
+            FrmReprogramarCita frmReprogramarCita = new FrmReprogramarCita();
+            ClsControl.AbrirFormulario(frmReprogramarCita, panel);
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            FrmCancelarCita frmCancelarCita = new FrmCancelarCita();
+            ClsControl.AbrirFormulario(frmCancelarCita, panel);
+        }
+
+        private void btn_citasp_Click(object sender, EventArgs e)
+        {
+            FrmCitaPendiente citaPendiente = new FrmCitaPendiente();
+            ClsControl.AbrirFormulario(citaPendiente, panel);
         }
     }
 }

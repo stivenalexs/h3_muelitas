@@ -66,9 +66,6 @@ namespace PryPresentacion
             txb_usuario.Enabled = true;
             txb_contraseña.Enabled = true;
             btn_iniciar.Enabled = true;
-            //
-            btn_volver.Enabled = true;
-            btn_volver.Visible = true;
         }
     }
 }

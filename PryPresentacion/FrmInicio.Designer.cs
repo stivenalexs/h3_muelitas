@@ -34,7 +34,6 @@
             this.btn_ingresar = new MaterialSkin.Controls.MaterialButton();
             this.btn_registrar = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_volver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,31 +178,18 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_volver
-            // 
-            this.btn_volver.Enabled = false;
-            this.btn_volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_volver.Location = new System.Drawing.Point(539, 409);
-            this.btn_volver.Name = "btn_volver";
-            this.btn_volver.Size = new System.Drawing.Size(95, 38);
-            this.btn_volver.TabIndex = 12;
-            this.btn_volver.Text = "Volver";
-            this.btn_volver.UseVisualStyleBackColor = true;
-            this.btn_volver.Visible = false;
-            // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 490);
-            this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.btn_iniciar);
             this.Controls.Add(this.txb_contraseña);
             this.Controls.Add(this.txb_usuario);
             this.Controls.Add(this.btn_ingresar);
             this.Controls.Add(this.btn_registrar);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmInicio";
             this.Padding = new System.Windows.Forms.Padding(2, 52, 2, 2);
             this.Text = "FrmInicio";
@@ -221,6 +207,5 @@
         private MaterialSkin.Controls.MaterialButton btn_ingresar;
         private MaterialSkin.Controls.MaterialButton btn_registrar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_volver;
     }
 }

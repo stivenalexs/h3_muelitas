@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PryPresentacion
 {
-    public partial class FrmPerfil : MaterialForm
+    public partial class FrmPerfil : Form
     {
         //objetos persona
         ClsPersona persona = new ClsPersona();
@@ -41,9 +41,17 @@ namespace PryPresentacion
 
         private void FrmPerfil_Load(object sender, EventArgs e)
         {
-            FrmPerfil_Inicio perfil_Inicio = new FrmPerfil_Inicio(persona, panel1);
-            ClsControl.AbrirFormulario(perfil_Inicio, panel1);
             ClsControl.identificar(persona, personaLn, paciente, pacienteLn, profesional, profecionalLn, admin, adminln);
+            if (admin.Clave1 != null)
+            {
+                Frm_inicio_admin inicio_Admin = new Frm_inicio_admin(admin,panel1);
+                ClsControl.AbrirFormulario(inicio_Admin, panel1);
+            }
+            else
+            {
+                FrmPerfil_Inicio perfil_Inicio = new FrmPerfil_Inicio(persona, panel1);
+                ClsControl.AbrirFormulario(perfil_Inicio, panel1);
+            }
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
@@ -54,8 +62,17 @@ namespace PryPresentacion
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
-            FrmPerfil_Inicio perfil_Inicio = new FrmPerfil_Inicio(persona, panel1);
-            ClsControl.AbrirFormulario(perfil_Inicio, panel1);
+            ClsControl.identificar(persona, personaLn, paciente, pacienteLn, profesional, profecionalLn, admin, adminln);
+            if (admin.Clave1 != null)
+            {
+                Frm_inicio_admin inicio_Admin = new Frm_inicio_admin(admin, panel1);
+                ClsControl.AbrirFormulario(inicio_Admin, panel1);
+            }
+            else
+            {
+                FrmPerfil_Inicio perfil_Inicio = new FrmPerfil_Inicio(persona, panel1);
+                ClsControl.AbrirFormulario(perfil_Inicio, panel1);
+            }
         }
 
         private void btn_perfil_Click(object sender, EventArgs e)
