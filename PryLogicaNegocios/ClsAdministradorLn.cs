@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace PryLogicaNegocios
 {
+    // holaaaaaaaaaaaaaa
     public class ClsAdministradorLn
     {
         #region VariablePrivada
