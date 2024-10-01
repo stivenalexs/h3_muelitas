@@ -1,6 +1,4 @@
 ﻿using MaterialSkin.Controls;
-using PryEntidades;
-using PryLogicaNegocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,14 +26,6 @@ namespace PryPresentacion
         private void btn_agendar_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void cmb_profesional_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //objetos profesional
-            ClsProfecional profesional = new ClsProfecional(cmb_profesional.Text, cmb_hora.Text);
-            ClsProfecionalLn profecionalLn = new ClsProfecionalLn();
-            profecionalLn.Index(ref profesional);
         }
     }
 }

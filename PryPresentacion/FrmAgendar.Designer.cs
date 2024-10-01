@@ -135,7 +135,6 @@
             this.cmb_profesional.Name = "cmb_profesional";
             this.cmb_profesional.Size = new System.Drawing.Size(445, 24);
             this.cmb_profesional.TabIndex = 11;
-            this.cmb_profesional.SelectedIndexChanged += new System.EventHandler(this.cmb_profesional_SelectedIndexChanged);
             // 
             // cmb_tipocita
             // 
