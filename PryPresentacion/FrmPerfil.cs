@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PryPresentacion
 {
-    public partial class FrmPerfil : MaterialForm
+    public partial class FrmPerfil : Form
     {
         //objetos persona
         ClsPersona persona = new ClsPersona();

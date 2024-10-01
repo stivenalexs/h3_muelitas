@@ -45,9 +45,10 @@
             // 
             this.lb_bien.AutoSize = true;
             this.lb_bien.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_bien.Location = new System.Drawing.Point(16, 69);
+            this.lb_bien.Location = new System.Drawing.Point(21, 85);
+            this.lb_bien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_bien.Name = "lb_bien";
-            this.lb_bien.Size = new System.Drawing.Size(105, 24);
+            this.lb_bien.Size = new System.Drawing.Size(134, 29);
             this.lb_bien.TabIndex = 27;
             this.lb_bien.Text = "Bienvenido";
             // 
@@ -59,12 +60,12 @@
             this.btn_seguimiento.Depth = 0;
             this.btn_seguimiento.HighEmphasis = true;
             this.btn_seguimiento.Icon = null;
-            this.btn_seguimiento.Location = new System.Drawing.Point(421, 129);
-            this.btn_seguimiento.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_seguimiento.Location = new System.Drawing.Point(561, 159);
+            this.btn_seguimiento.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_seguimiento.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_seguimiento.Name = "btn_seguimiento";
             this.btn_seguimiento.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_seguimiento.Size = new System.Drawing.Size(136, 24);
+            this.btn_seguimiento.Size = new System.Drawing.Size(181, 30);
             this.btn_seguimiento.TabIndex = 26;
             this.btn_seguimiento.Text = "seguimientos";
             this.btn_seguimiento.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -80,12 +81,12 @@
             this.btn_pagos.Depth = 0;
             this.btn_pagos.HighEmphasis = true;
             this.btn_pagos.Icon = null;
-            this.btn_pagos.Location = new System.Drawing.Point(421, 193);
-            this.btn_pagos.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_pagos.Location = new System.Drawing.Point(561, 238);
+            this.btn_pagos.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_pagos.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_pagos.Name = "btn_pagos";
             this.btn_pagos.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_pagos.Size = new System.Drawing.Size(136, 24);
+            this.btn_pagos.Size = new System.Drawing.Size(181, 30);
             this.btn_pagos.TabIndex = 25;
             this.btn_pagos.Text = "Pagos";
             this.btn_pagos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -95,10 +96,10 @@
             // 
             // pb_foto
             // 
-            this.pb_foto.Location = new System.Drawing.Point(20, 104);
-            this.pb_foto.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_foto.Location = new System.Drawing.Point(27, 128);
+            this.pb_foto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_foto.Name = "pb_foto";
-            this.pb_foto.Size = new System.Drawing.Size(180, 156);
+            this.pb_foto.Size = new System.Drawing.Size(240, 192);
             this.pb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_foto.TabIndex = 24;
             this.pb_foto.TabStop = false;
@@ -111,12 +112,12 @@
             this.btn_Procedimiento.Depth = 0;
             this.btn_Procedimiento.HighEmphasis = true;
             this.btn_Procedimiento.Icon = null;
-            this.btn_Procedimiento.Location = new System.Drawing.Point(578, 129);
-            this.btn_Procedimiento.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_Procedimiento.Location = new System.Drawing.Point(771, 159);
+            this.btn_Procedimiento.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_Procedimiento.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_Procedimiento.Name = "btn_Procedimiento";
             this.btn_Procedimiento.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_Procedimiento.Size = new System.Drawing.Size(136, 24);
+            this.btn_Procedimiento.Size = new System.Drawing.Size(181, 30);
             this.btn_Procedimiento.TabIndex = 28;
             this.btn_Procedimiento.Text = "Procedimientos";
             this.btn_Procedimiento.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -132,17 +133,18 @@
             this.btn_citas.Depth = 0;
             this.btn_citas.HighEmphasis = true;
             this.btn_citas.Icon = null;
-            this.btn_citas.Location = new System.Drawing.Point(273, 129);
-            this.btn_citas.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_citas.Location = new System.Drawing.Point(364, 159);
+            this.btn_citas.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_citas.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_citas.Name = "btn_citas";
             this.btn_citas.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_citas.Size = new System.Drawing.Size(136, 24);
+            this.btn_citas.Size = new System.Drawing.Size(181, 30);
             this.btn_citas.TabIndex = 29;
             this.btn_citas.Text = "citas pendientes";
             this.btn_citas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btn_citas.UseAccentColor = false;
             this.btn_citas.UseVisualStyleBackColor = true;
+            this.btn_citas.Click += new System.EventHandler(this.btn_citas_Click);
             // 
             // btn_agendar
             // 
@@ -152,17 +154,18 @@
             this.btn_agendar.Depth = 0;
             this.btn_agendar.HighEmphasis = true;
             this.btn_agendar.Icon = null;
-            this.btn_agendar.Location = new System.Drawing.Point(273, 236);
-            this.btn_agendar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_agendar.Location = new System.Drawing.Point(364, 290);
+            this.btn_agendar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_agendar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_agendar.Name = "btn_agendar";
             this.btn_agendar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_agendar.Size = new System.Drawing.Size(136, 24);
+            this.btn_agendar.Size = new System.Drawing.Size(181, 30);
             this.btn_agendar.TabIndex = 30;
             this.btn_agendar.Text = "agendar";
             this.btn_agendar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btn_agendar.UseAccentColor = false;
             this.btn_agendar.UseVisualStyleBackColor = true;
+            this.btn_agendar.Click += new System.EventHandler(this.btn_agendar_Click);
             // 
             // btn_reprogramar
             // 
@@ -172,12 +175,12 @@
             this.btn_reprogramar.Depth = 0;
             this.btn_reprogramar.HighEmphasis = true;
             this.btn_reprogramar.Icon = null;
-            this.btn_reprogramar.Location = new System.Drawing.Point(421, 236);
-            this.btn_reprogramar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btn_reprogramar.Location = new System.Drawing.Point(561, 290);
+            this.btn_reprogramar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_reprogramar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_reprogramar.Name = "btn_reprogramar";
             this.btn_reprogramar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_reprogramar.Size = new System.Drawing.Size(136, 24);
+            this.btn_reprogramar.Size = new System.Drawing.Size(181, 30);
             this.btn_reprogramar.TabIndex = 32;
             this.btn_reprogramar.Text = "reprogramar";
             this.btn_reprogramar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -192,12 +195,12 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(578, 236);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.materialButton1.Location = new System.Drawing.Point(771, 290);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(136, 24);
+            this.materialButton1.Size = new System.Drawing.Size(181, 30);
             this.materialButton1.TabIndex = 33;
             this.materialButton1.Text = "Cancelar";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -208,17 +211,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(278, 170);
+            this.label2.Location = new System.Drawing.Point(371, 209);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 24);
+            this.label2.Size = new System.Drawing.Size(73, 29);
             this.label2.TabIndex = 34;
             this.label2.Text = "Citas:";
             // 
             // FrmPerfil_Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 391);
+            this.ClientSize = new System.Drawing.Size(972, 481);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.btn_reprogramar);
@@ -229,9 +233,9 @@
             this.Controls.Add(this.btn_seguimiento);
             this.Controls.Add(this.btn_pagos);
             this.Controls.Add(this.pb_foto);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmPerfil_Inicio";
-            this.Padding = new System.Windows.Forms.Padding(2, 52, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(3, 64, 3, 2);
             this.Text = "FrmPerfil_Inicio";
             this.Load += new System.EventHandler(this.FrmPerfil_Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).EndInit();

@@ -174,9 +174,6 @@
     <Compile Include="Static\ClsControl.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Fmrgestionarprofecionales.resx">
       <DependentUpon>Fmrgestionarprofecionales.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +247,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

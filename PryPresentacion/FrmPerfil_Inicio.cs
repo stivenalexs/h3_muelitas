@@ -82,5 +82,15 @@ namespace PryPresentacion
         {
 
         }
+
+        private void btn_agendar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_citas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

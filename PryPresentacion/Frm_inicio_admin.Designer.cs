@@ -41,7 +41,7 @@
             // 
             this.lb_bien.AutoSize = true;
             this.lb_bien.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_bien.Location = new System.Drawing.Point(655, 226);
+            this.lb_bien.Location = new System.Drawing.Point(665, 165);
             this.lb_bien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_bien.Name = "lb_bien";
             this.lb_bien.Size = new System.Drawing.Size(134, 29);
@@ -56,7 +56,7 @@
             this.btn_horario.Depth = 0;
             this.btn_horario.HighEmphasis = true;
             this.btn_horario.Icon = null;
-            this.btn_horario.Location = new System.Drawing.Point(527, 365);
+            this.btn_horario.Location = new System.Drawing.Point(537, 304);
             this.btn_horario.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_horario.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_horario.Name = "btn_horario";
@@ -76,7 +76,7 @@
             this.btn_pacientes.Depth = 0;
             this.btn_pacientes.HighEmphasis = true;
             this.btn_pacientes.Icon = null;
-            this.btn_pacientes.Location = new System.Drawing.Point(99, 365);
+            this.btn_pacientes.Location = new System.Drawing.Point(109, 304);
             this.btn_pacientes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_pacientes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_pacientes.Name = "btn_pacientes";
@@ -90,7 +90,7 @@
             // 
             // pb_foto
             // 
-            this.pb_foto.Location = new System.Drawing.Point(364, 162);
+            this.pb_foto.Location = new System.Drawing.Point(374, 101);
             this.pb_foto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pb_foto.Name = "pb_foto";
             this.pb_foto.Size = new System.Drawing.Size(237, 158);
@@ -106,7 +106,7 @@
             this.btn_profecionales.Depth = 0;
             this.btn_profecionales.HighEmphasis = true;
             this.btn_profecionales.Icon = null;
-            this.btn_profecionales.Location = new System.Drawing.Point(304, 365);
+            this.btn_profecionales.Location = new System.Drawing.Point(314, 304);
             this.btn_profecionales.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_profecionales.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_profecionales.Name = "btn_profecionales";
@@ -126,7 +126,7 @@
             this.btn_nomina.Depth = 0;
             this.btn_nomina.HighEmphasis = true;
             this.btn_nomina.Icon = null;
-            this.btn_nomina.Location = new System.Drawing.Point(732, 365);
+            this.btn_nomina.Location = new System.Drawing.Point(742, 304);
             this.btn_nomina.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn_nomina.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_nomina.Name = "btn_nomina";
