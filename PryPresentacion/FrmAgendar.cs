@@ -45,6 +45,7 @@ namespace PryPresentacion
             ClsProfecional profesional = new ClsProfecional(cmb_profesional.Text, cmb_hora.Text);
             ClsProfecionalLn profecionalLn = new ClsProfecionalLn();
             profecionalLn.Index(ref profesional);
+            //llenar profesional
             
             
         }
