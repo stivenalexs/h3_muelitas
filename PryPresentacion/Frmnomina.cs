@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PryPresentacion
 {
-    public partial class Frmnomina : MaterialForm
+    public partial class Frmnomina : Form
     {
         public Frmnomina()
         {

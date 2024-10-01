@@ -62,6 +62,12 @@
     <Compile Include="FrmAgendar.Designer.cs">
       <DependentUpon>FrmAgendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCitaPendiente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCitaPendiente.Designer.cs">
+      <DependentUpon>FrmCitaPendiente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frmgestionarpacientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,9 +180,6 @@
     <Compile Include="Static\ClsControl.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Fmrgestionarprofecionales.resx">
       <DependentUpon>Fmrgestionarprofecionales.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCita.resx">
       <DependentUpon>FrmCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCitaPendiente.resx">
+      <DependentUpon>FrmCitaPendiente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDatosPerfil.resx">
       <DependentUpon>FrmDatosPerfil.cs</DependentUpon>
@@ -250,6 +256,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

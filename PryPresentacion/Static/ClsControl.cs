@@ -39,23 +39,6 @@ namespace PryPresentacion.Static
             paln.Read(ref pa);
             proln.Read(ref pro);
             adminln.Read(ref admin);
-            if (pa.Tipo_documento1 != null)
-            {
-                MessageBox.Show($"se accedio como paciente", "Confirmación",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-             
-            else if (pro.Horario1 != null)
-            {
-                MessageBox.Show($"se accedio como profesional", "Confirmación",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
-            else if (admin.Clave1 != null)  
-            {
-                MessageBox.Show($"se accedio como admin", "Confirmación",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
         public static void AbrirFormulario(Form form, Panel panel)
         {
