@@ -10,7 +10,7 @@ namespace PryEntidades
     public class ClsCita
     {
         #region VariablesPrivadas
-        private string Cod_Cita;
+        private int Cod_Cita;
         private string Doc_Paciente;
         private string Doc_Profesional;
         private DateTime Fecha_Cita;
@@ -23,19 +23,19 @@ namespace PryEntidades
         #endregion
 
         #region VariablesPublicas
-        public ClsCita(string cod_Cita, string doc_Paciente,
+        public ClsCita(string doc_Paciente,
         string doc_Profesional, DateTime fecha_Cita,
         TimeSpan hora_Cita, string estado)
         {
-            Cod_Cita1 = cod_Cita;
             Doc_Paciente1 = doc_Paciente;
             Doc_Profesional1 = doc_Profesional;
             Fecha_Cita1 = fecha_Cita;
             Hora_Cita1 = hora_Cita;
             Estado1 = estado;
         }
+         public ClsCita()  { }
 
-        public string Cod_Cita1 { get => Cod_Cita; set => Cod_Cita = value; }
+        public int Cod_Cita1 { get => Cod_Cita; set => Cod_Cita = value; }
         public string Doc_Paciente1 { get => Doc_Paciente; set => Doc_Paciente = value; }
         public string Doc_Profesional1 { get => Doc_Profesional; set => Doc_Profesional = value; }
         public DateTime Fecha_Cita1 { get => Fecha_Cita; set => Fecha_Cita = value; }

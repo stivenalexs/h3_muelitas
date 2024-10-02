@@ -93,13 +93,15 @@ namespace PryPresentacion
 
         private void btn_agendar_Click(object sender, EventArgs e)
         {
-            FrmAgendar frmAgendar = new FrmAgendar();
+            FrmAgendar frmAgendar = new FrmAgendar(persona);
+
             ClsControl.AbrirFormulario(frmAgendar, panel);
         }
 
         private void btn_reprogramar_Click(object sender, EventArgs e)
         {
-            FrmReprogramarCita frmReprogramarCita = new FrmReprogramarCita();
+            FrmReprogramarCita frmReprogramarCita = new FrmReprogramarCita(persona);
+
             ClsControl.AbrirFormulario(frmReprogramarCita, panel);
         }
 

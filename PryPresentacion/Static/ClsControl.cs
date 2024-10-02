@@ -3,6 +3,7 @@ using PryLogicaNegocio;
 using PryLogicaNegocios;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace PryPresentacion.Static
 {
     public class ClsControl
     {
+
         public static void solo_letras(KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57))
@@ -50,9 +52,29 @@ namespace PryPresentacion.Static
             panel.Controls.Add(form);
             form.Show();
         }
-        public static void juan_hp(string a="juan es un hp")
+        public static void LlenarComboBox(ClsProfecional ObjProfesional, ComboBox c)
         {
-            
+            // Asegúrase de que DtResultados no sea nulo y tenga filas
+            if (ObjProfesional.DtResultados != null && ObjProfesional.DtResultados.Rows.Count > 0)
+            {
+                // Limpia el ComboBox antes de llenarlo
+                c.Items.Clear();
+
+                // Itera sobre cada fila en DtResultados
+                foreach (DataRow fila in ObjProfesional.DtResultados.Rows)
+                {
+                    // Supongamos que la columna que deseas mostrar en el ComboBox se llama "Nombre"
+                    string nombreProfesional = fila["Nombre"].ToString();
+                    c.Items.Add(nombreProfesional);
+                }
+            }
+            else
+            {
+                c.Items.Clear();
+                // Maneja el caso donde no hay resultados
+                c.Items.Add("No hay profesionales disponibles");
+            }
+
         }
     }
 }

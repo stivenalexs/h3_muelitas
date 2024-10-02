@@ -46,7 +46,7 @@ namespace PryLogicaNegocios
                     {
                         foreach (DataRow item in ObjCita.DtResultados.Rows)
                         {
-                            ObjCita.Cod_Cita1 = item["Cod_Cita"].ToString();
+                            ObjCita.Cod_Cita1 =int.Parse( item["Cod_Cita"].ToString());
                             ObjCita.Doc_Paciente1 = item["Doc_Paciente"].ToString();
                             ObjCita.Doc_Profesional1 = item["Doc_Profesional"].ToString();
                             ObjCita.Fecha_Cita1 = Convert.ToDateTime(item["Fecha_Cita"].ToString());
@@ -72,7 +72,6 @@ namespace PryLogicaNegocios
                 Scalar = true
 
             };
-            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "15", ObjCita.Cod_Cita1);
             ObjDataBase.DtParametros.Rows.Add(@"@Doc_Paciente", "15", ObjCita.Doc_Paciente1);
             ObjDataBase.DtParametros.Rows.Add(@"@Doc_Profesional", "15", ObjCita.Doc_Profesional1);
             ObjDataBase.DtParametros.Rows.Add(@"@Fecha_Cita", "11", ObjCita.Fecha_Cita1);
@@ -91,7 +90,7 @@ namespace PryLogicaNegocios
                 Scalar = true
 
             };
-            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "15", ObjCita.Cod_Cita1);
+            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "4", ObjCita.Cod_Cita1);
             ObjDataBase.DtParametros.Rows.Add(@"@Doc_Paciente", "15", ObjCita.Doc_Paciente1);
             ObjDataBase.DtParametros.Rows.Add(@"@Doc_Profesional", "15", ObjCita.Doc_Profesional1);
             ObjDataBase.DtParametros.Rows.Add(@"@Fecha_Cita", "11", ObjCita.Fecha_Cita1);
@@ -110,7 +109,7 @@ namespace PryLogicaNegocios
                 Scalar = true
 
             };
-            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "15", ObjCita.Cod_Cita1);
+            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "4", ObjCita.Cod_Cita1);
             Ejecutar(ref ObjCita);
         }
 
@@ -123,7 +122,38 @@ namespace PryLogicaNegocios
                 Scalar = false
 
             };
-            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "15", ObjCita.Cod_Cita1);
+            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "4", ObjCita.Cod_Cita1);
+
+            Ejecutar(ref ObjCita);
+        }
+        #endregion
+
+        #region metodos especificos
+        public void Buscar_Citas_Paciente(ref ClsCita ObjCita, string documento)
+        {
+            ObjDataBase = new ClsAccesoDatos()
+            {
+                NombreTabla = "Cita",
+                NombreSP = "[SP_Buscar_CitaPa]",
+                Scalar = false
+            };
+
+            ObjDataBase.DtParametros.Rows.Add(@"@Doc_Paciente", "15", documento);
+            Ejecutar(ref ObjCita);
+        }
+        public void Reprogramar(ref ClsCita ObjCita)
+        {
+            ObjDataBase = new ClsAccesoDatos()
+            {
+                NombreTabla = "Cita",
+                NombreSP = "[SP_Cita_Reprogramar]",
+                Scalar = true
+
+            };
+            ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "4", ObjCita.Cod_Cita1);
+            ObjDataBase.DtParametros.Rows.Add(@"@Doc_Profesional", "15", ObjCita.Doc_Profesional1);
+            ObjDataBase.DtParametros.Rows.Add(@"@Fecha_Cita", "11", ObjCita.Fecha_Cita1);
+            ObjDataBase.DtParametros.Rows.Add(@"@Hora_Cita", "12", ObjCita.Hora_Cita1);
 
             Ejecutar(ref ObjCita);
         }
