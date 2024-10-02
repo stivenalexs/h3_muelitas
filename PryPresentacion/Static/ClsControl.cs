@@ -74,6 +74,7 @@ namespace PryPresentacion.Static
                 // Maneja el caso donde no hay resultados
                 c.Items.Add("No hay profesionales disponibles");
             }
+
         }
     }
 }
