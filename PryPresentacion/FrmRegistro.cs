@@ -122,7 +122,10 @@ namespace PryPresentacion
                string.IsNullOrEmpty(cmb_sangre.Text) ||
                string.IsNullOrEmpty(date_fechanaci.Text) ||
                string.IsNullOrEmpty(txb_contraseña.Text) ||
-               string.IsNullOrEmpty(cmb_TipoDocumento.Text)
+               string.IsNullOrEmpty(cmb_TipoDocumento.Text)||
+               string.IsNullOrEmpty(cmb_correo.Text) ||
+               string.IsNullOrEmpty(cmb_s.Text)
+
                )
             {
                 MessageBox.Show("por favor digite todos los datos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -200,6 +203,5 @@ namespace PryPresentacion
         {
             ClsControl.solo_numeros(e);
         }
-       
     }
 }

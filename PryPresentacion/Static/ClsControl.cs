@@ -12,6 +12,7 @@ namespace PryPresentacion.Static
 {
     public class ClsControl
     {
+
         public static void solo_letras(KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57))

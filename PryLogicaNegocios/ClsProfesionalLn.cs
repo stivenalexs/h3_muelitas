@@ -31,6 +31,7 @@ namespace PryLogicaNegocios
 
         #endregion
 
+        #region metodos ejecutar
         private void Ejecutar(ref ClsProfecional ObjProfesional)
         {
             ObjDataBase.CRUD(ref ObjDataBase);
@@ -48,9 +49,8 @@ namespace PryLogicaNegocios
                     {
                         foreach (DataRow item in ObjProfesional.DtResultados.Rows)
                         {
-                            ObjProfesional.Horario1= item["Horario"].ToString();
+                            ObjProfesional.Horario1 = item["Horario"].ToString();
                             ObjProfesional.Documento_Pro1 = item["Doc_pro"].ToString();
-                         
                         }
                     }
                 }
@@ -88,6 +88,8 @@ namespace PryLogicaNegocios
                 ObjProfesional.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
+
+        #endregion
 
         #region  MetodosCrud
         public void Create(ref ClsProfecional ObjProfesional)
@@ -158,6 +160,17 @@ namespace PryLogicaNegocios
                 Scalar = false,
             };
             ObjDataBase.DtParametros.Rows.Add(@"@Especialidad", "15", Especialidad);
+            Ejecutar_Horario(ref ObjProfesional);
+        }
+        public void buscar_profesionales(ref ClsProfecional ObjProfesional, string tipo_cita)
+        {
+            ObjDataBase = new ClsAccesoDatos()
+            {
+                NombreTabla = "Persona",
+                NombreSP = "[SP_Buscar_Profesional]",
+                Scalar = false,
+            };
+            ObjDataBase.DtParametros.Rows.Add(@"@Especialidad", "15", tipo_cita);
             Ejecutar_Horario(ref ObjProfesional);
         }
         #endregion
