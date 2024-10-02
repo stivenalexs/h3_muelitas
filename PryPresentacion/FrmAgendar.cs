@@ -2,6 +2,7 @@
 using PryEntidades;
 using PryLogicaNegocio;
 using PryLogicaNegocios;
+using PryPresentacion.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,11 +38,6 @@ namespace PryPresentacion
             pacienteLn.Read(ref paciente);
         }
 
-        public FrmAgendar()  {
-
-            InitializeComponent();
-        }
-
         private void FrmAgendar_Load(object sender, EventArgs e)
         {
             //llenar los tipos de cita en combo box
@@ -62,9 +58,8 @@ namespace PryPresentacion
 
         private void cmb_tipocita_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             profecionalLn.buscar_profesionales(ref profesional, cmb_tipocita.Text);
-            cmb_profesional.DataSource = profesional.DtResultados;
+            ClsControl.LlenarComboBox(profesional, cmb_profesional);
             //limitar horas 
             switch (cmb_tipocita.Text)
             {
@@ -128,6 +123,7 @@ namespace PryPresentacion
                     date_hora.Text = "";
                     break;
             }
+
         }
         private void btn_agendar_Click(object sender, EventArgs e)
         {
@@ -140,18 +136,29 @@ namespace PryPresentacion
             }
             else
             {
-                cita = new ClsCita(persona.ID_Persona1, profesional.Documento_Pro1, date_fecha.Value, TimeSpan.Parse(date_hora.Text),"pendiente");
+                cita = new ClsCita(paciente.Documento_Pa1, profesional.Documento_Pro1, DateTime.Parse(date_fecha.Text), TimeSpan.Parse(date_hora.Text),"pendiente");
                 citaLn.Create(ref cita);
                 if (cita.MensajeError == null)
                 {
-                    MessageBox.Show($"Se esta agendo la cita correctamente", "Confirmación",
+                    MessageBox.Show($"Se esta agendada la cita correctamente", "Confirmación",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show(persona.MensajeError, "Error cita", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(cita.MensajeError, "Error cita", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+        private void cmb_profesional_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            profecionalLn.llenar_Por_Nombre(ref profesional, cmb_profesional.Text);
+        }
+
+        private void date_hora_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

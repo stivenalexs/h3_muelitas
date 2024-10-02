@@ -135,7 +135,7 @@ namespace PryPresentacion
                 try
                 {
                     persona = new ClsPersona(imagen, txb_contacto.Text, txb_documento.Text,
-                        txb_nombre.Text, txb_correo.Text,txb_contraseña.Text,Convert.ToDateTime(date_fechanaci.Text), cmb_sangre.Text,
+                        txb_nombre.Text, txb_correo.Text+cmb_correo.Text,txb_contraseña.Text,Convert.ToDateTime(date_fechanaci.Text), cmb_sangre.Text+cmb_s.Text,
                         txb_documento.Text) ;
                     lnpersona.Create(ref persona);
                     if (persona.MensajeError==null)

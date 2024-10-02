@@ -28,46 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txb_turno = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txb_codigo = new MaterialSkin.Controls.MaterialTextBox2();
             this.btn_reprogramar = new MaterialSkin.Controls.MaterialButton();
             this.label_hora = new MaterialSkin.Controls.MaterialLabel();
-            this.cmb_hora = new System.Windows.Forms.ComboBox();
             this.label_fecha = new MaterialSkin.Controls.MaterialLabel();
             this.label_profesional = new MaterialSkin.Controls.MaterialLabel();
-            this.date_fecha_repro = new System.Windows.Forms.DateTimePicker();
-            this.combo_profesional_repro = new System.Windows.Forms.ComboBox();
-            this.dataGrid_repro = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_repro)).BeginInit();
+            this.combo_profesional = new System.Windows.Forms.ComboBox();
+            this.dtvListaCitas = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.date_fecha = new System.Windows.Forms.DateTimePicker();
+            this.date_hora = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lb_especialidad = new MaterialSkin.Controls.MaterialLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvListaCitas)).BeginInit();
             this.SuspendLayout();
             // 
-            // txb_turno
+            // txb_codigo
             // 
-            this.txb_turno.AnimateReadOnly = false;
-            this.txb_turno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txb_turno.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txb_turno.Depth = 0;
-            this.txb_turno.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txb_turno.HideSelection = true;
-            this.txb_turno.Hint = "numero turno";
-            this.txb_turno.LeadingIcon = null;
-            this.txb_turno.Location = new System.Drawing.Point(554, 20);
-            this.txb_turno.MaxLength = 32767;
-            this.txb_turno.MouseState = MaterialSkin.MouseState.OUT;
-            this.txb_turno.Name = "txb_turno";
-            this.txb_turno.PasswordChar = '\0';
-            this.txb_turno.PrefixSuffixText = null;
-            this.txb_turno.ReadOnly = false;
-            this.txb_turno.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txb_turno.SelectedText = "";
-            this.txb_turno.SelectionLength = 0;
-            this.txb_turno.SelectionStart = 0;
-            this.txb_turno.ShortcutsEnabled = true;
-            this.txb_turno.Size = new System.Drawing.Size(161, 48);
-            this.txb_turno.TabIndex = 44;
-            this.txb_turno.TabStop = false;
-            this.txb_turno.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txb_turno.TrailingIcon = null;
-            this.txb_turno.UseSystemPasswordChar = false;
+            this.txb_codigo.AnimateReadOnly = false;
+            this.txb_codigo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txb_codigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txb_codigo.Depth = 0;
+            this.txb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txb_codigo.HideSelection = true;
+            this.txb_codigo.Hint = "numero turno";
+            this.txb_codigo.LeadingIcon = null;
+            this.txb_codigo.Location = new System.Drawing.Point(554, 12);
+            this.txb_codigo.MaxLength = 32767;
+            this.txb_codigo.MouseState = MaterialSkin.MouseState.OUT;
+            this.txb_codigo.Name = "txb_codigo";
+            this.txb_codigo.PasswordChar = '\0';
+            this.txb_codigo.PrefixSuffixText = null;
+            this.txb_codigo.ReadOnly = false;
+            this.txb_codigo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txb_codigo.SelectedText = "";
+            this.txb_codigo.SelectionLength = 0;
+            this.txb_codigo.SelectionStart = 0;
+            this.txb_codigo.ShortcutsEnabled = true;
+            this.txb_codigo.Size = new System.Drawing.Size(279, 48);
+            this.txb_codigo.TabIndex = 44;
+            this.txb_codigo.TabStop = false;
+            this.txb_codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txb_codigo.TrailingIcon = null;
+            this.txb_codigo.UseSystemPasswordChar = false;
+            this.txb_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_codigo_KeyPress);
             // 
             // btn_reprogramar
             // 
@@ -76,7 +80,7 @@
             this.btn_reprogramar.Depth = 0;
             this.btn_reprogramar.HighEmphasis = true;
             this.btn_reprogramar.Icon = null;
-            this.btn_reprogramar.Location = new System.Drawing.Point(645, 265);
+            this.btn_reprogramar.Location = new System.Drawing.Point(650, 238);
             this.btn_reprogramar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_reprogramar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_reprogramar.Name = "btn_reprogramar";
@@ -87,13 +91,14 @@
             this.btn_reprogramar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btn_reprogramar.UseAccentColor = false;
             this.btn_reprogramar.UseVisualStyleBackColor = true;
+            this.btn_reprogramar.Click += new System.EventHandler(this.btn_reprogramar_Click);
             // 
             // label_hora
             // 
             this.label_hora.AutoSize = true;
             this.label_hora.Depth = 0;
             this.label_hora.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label_hora.Location = new System.Drawing.Point(738, 95);
+            this.label_hora.Location = new System.Drawing.Point(730, 154);
             this.label_hora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_hora.MouseState = MaterialSkin.MouseState.HOVER;
             this.label_hora.Name = "label_hora";
@@ -101,21 +106,12 @@
             this.label_hora.TabIndex = 42;
             this.label_hora.Text = "Hora";
             // 
-            // cmb_hora
-            // 
-            this.cmb_hora.FormattingEnabled = true;
-            this.cmb_hora.Location = new System.Drawing.Point(741, 126);
-            this.cmb_hora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmb_hora.Name = "cmb_hora";
-            this.cmb_hora.Size = new System.Drawing.Size(92, 21);
-            this.cmb_hora.TabIndex = 41;
-            // 
             // label_fecha
             // 
             this.label_fecha.AutoSize = true;
             this.label_fecha.Depth = 0;
             this.label_fecha.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label_fecha.Location = new System.Drawing.Point(551, 174);
+            this.label_fecha.Location = new System.Drawing.Point(556, 147);
             this.label_fecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_fecha.MouseState = MaterialSkin.MouseState.HOVER;
             this.label_fecha.Name = "label_fecha";
@@ -128,7 +124,7 @@
             this.label_profesional.AutoSize = true;
             this.label_profesional.Depth = 0;
             this.label_profesional.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label_profesional.Location = new System.Drawing.Point(551, 100);
+            this.label_profesional.Location = new System.Drawing.Point(556, 73);
             this.label_profesional.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_profesional.MouseState = MaterialSkin.MouseState.HOVER;
             this.label_profesional.Name = "label_profesional";
@@ -136,56 +132,104 @@
             this.label_profesional.TabIndex = 39;
             this.label_profesional.Text = "profesional";
             // 
-            // date_fecha_repro
+            // combo_profesional
             // 
-            this.date_fecha_repro.Location = new System.Drawing.Point(554, 204);
-            this.date_fecha_repro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.date_fecha_repro.Name = "date_fecha_repro";
-            this.date_fecha_repro.Size = new System.Drawing.Size(151, 20);
-            this.date_fecha_repro.TabIndex = 38;
+            this.combo_profesional.FormattingEnabled = true;
+            this.combo_profesional.Location = new System.Drawing.Point(559, 99);
+            this.combo_profesional.Margin = new System.Windows.Forms.Padding(2);
+            this.combo_profesional.Name = "combo_profesional";
+            this.combo_profesional.Size = new System.Drawing.Size(151, 21);
+            this.combo_profesional.TabIndex = 37;
             // 
-            // combo_profesional_repro
+            // dtvListaCitas
             // 
-            this.combo_profesional_repro.FormattingEnabled = true;
-            this.combo_profesional_repro.Location = new System.Drawing.Point(554, 126);
-            this.combo_profesional_repro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.combo_profesional_repro.Name = "combo_profesional_repro";
-            this.combo_profesional_repro.Size = new System.Drawing.Size(151, 21);
-            this.combo_profesional_repro.TabIndex = 37;
+            this.dtvListaCitas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtvListaCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtvListaCitas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Editar});
+            this.dtvListaCitas.Location = new System.Drawing.Point(12, 12);
+            this.dtvListaCitas.Name = "dtvListaCitas";
+            this.dtvListaCitas.Size = new System.Drawing.Size(511, 398);
+            this.dtvListaCitas.TabIndex = 45;
             // 
-            // dataGrid_repro
+            // Editar
             // 
-            this.dataGrid_repro.AllowUserToAddRows = false;
-            this.dataGrid_repro.AllowUserToDeleteRows = false;
-            this.dataGrid_repro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_repro.Location = new System.Drawing.Point(11, 20);
-            this.dataGrid_repro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGrid_repro.Name = "dataGrid_repro";
-            this.dataGrid_repro.ReadOnly = true;
-            this.dataGrid_repro.RowHeadersWidth = 51;
-            this.dataGrid_repro.RowTemplate.Height = 24;
-            this.dataGrid_repro.Size = new System.Drawing.Size(492, 363);
-            this.dataGrid_repro.TabIndex = 36;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.Name = "Editar";
+            // 
+            // date_fecha
+            // 
+            this.date_fecha.CustomFormat = "";
+            this.date_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_fecha.Location = new System.Drawing.Point(559, 180);
+            this.date_fecha.Margin = new System.Windows.Forms.Padding(2);
+            this.date_fecha.MinDate = new System.DateTime(2024, 10, 1, 0, 0, 0, 0);
+            this.date_fecha.Name = "date_fecha";
+            this.date_fecha.Size = new System.Drawing.Size(151, 20);
+            this.date_fecha.TabIndex = 46;
+            this.date_fecha.Value = new System.DateTime(2024, 10, 1, 16, 12, 20, 0);
+            // 
+            // date_hora
+            // 
+            this.date_hora.CustomFormat = "HH:mm";
+            this.date_hora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_hora.Location = new System.Drawing.Point(733, 180);
+            this.date_hora.Margin = new System.Windows.Forms.Padding(2);
+            this.date_hora.MinDate = new System.DateTime(2024, 10, 1, 0, 0, 0, 0);
+            this.date_hora.Name = "date_hora";
+            this.date_hora.ShowUpDown = true;
+            this.date_hora.Size = new System.Drawing.Size(105, 20);
+            this.date_hora.TabIndex = 47;
+            this.date_hora.Value = new System.DateTime(2024, 10, 1, 16, 12, 20, 0);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(730, 73);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(91, 19);
+            this.materialLabel1.TabIndex = 48;
+            this.materialLabel1.Text = "Especialidad";
+            // 
+            // lb_especialidad
+            // 
+            this.lb_especialidad.AutoSize = true;
+            this.lb_especialidad.Depth = 0;
+            this.lb_especialidad.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lb_especialidad.Location = new System.Drawing.Point(730, 101);
+            this.lb_especialidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_especialidad.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lb_especialidad.Name = "lb_especialidad";
+            this.lb_especialidad.Size = new System.Drawing.Size(37, 19);
+            this.lb_especialidad.TabIndex = 49;
+            this.lb_especialidad.Text = "lafsa";
             // 
             // FrmReprogramarCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 443);
-            this.Controls.Add(this.txb_turno);
+            this.Controls.Add(this.lb_especialidad);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.date_hora);
+            this.Controls.Add(this.date_fecha);
+            this.Controls.Add(this.dtvListaCitas);
+            this.Controls.Add(this.txb_codigo);
             this.Controls.Add(this.btn_reprogramar);
             this.Controls.Add(this.label_hora);
-            this.Controls.Add(this.cmb_hora);
             this.Controls.Add(this.label_fecha);
             this.Controls.Add(this.label_profesional);
-            this.Controls.Add(this.date_fecha_repro);
-            this.Controls.Add(this.combo_profesional_repro);
-            this.Controls.Add(this.dataGrid_repro);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.combo_profesional);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmReprogramarCita";
             this.Text = "FrmReprogramarCita";
             this.Load += new System.EventHandler(this.FrmReprogramarCita_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_repro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvListaCitas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,14 +237,17 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTextBox2 txb_turno;
+        private MaterialSkin.Controls.MaterialTextBox2 txb_codigo;
         private MaterialSkin.Controls.MaterialButton btn_reprogramar;
         private MaterialSkin.Controls.MaterialLabel label_hora;
-        private System.Windows.Forms.ComboBox cmb_hora;
         private MaterialSkin.Controls.MaterialLabel label_fecha;
         private MaterialSkin.Controls.MaterialLabel label_profesional;
-        private System.Windows.Forms.DateTimePicker date_fecha_repro;
-        private System.Windows.Forms.ComboBox combo_profesional_repro;
-        private System.Windows.Forms.DataGridView dataGrid_repro;
+        private System.Windows.Forms.ComboBox combo_profesional;
+        private System.Windows.Forms.DataGridView dtvListaCitas;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DateTimePicker date_fecha;
+        private System.Windows.Forms.DateTimePicker date_hora;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel lb_especialidad;
     }
 }

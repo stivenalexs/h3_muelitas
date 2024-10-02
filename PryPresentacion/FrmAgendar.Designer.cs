@@ -132,6 +132,7 @@
             this.cmb_profesional.Name = "cmb_profesional";
             this.cmb_profesional.Size = new System.Drawing.Size(335, 21);
             this.cmb_profesional.TabIndex = 11;
+            this.cmb_profesional.SelectedIndexChanged += new System.EventHandler(this.cmb_profesional_SelectedIndexChanged);
             // 
             // cmb_tipocita
             // 
@@ -155,6 +156,7 @@
             this.date_hora.Size = new System.Drawing.Size(334, 20);
             this.date_hora.TabIndex = 19;
             this.date_hora.Value = new System.DateTime(2024, 10, 1, 16, 12, 20, 0);
+            this.date_hora.ValueChanged += new System.EventHandler(this.date_hora_ValueChanged);
             // 
             // FrmAgendar
             // 
