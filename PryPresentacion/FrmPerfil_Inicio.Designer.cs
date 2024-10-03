@@ -30,13 +30,11 @@
         {
             this.lb_bien = new System.Windows.Forms.Label();
             this.btn_seguimiento = new MaterialSkin.Controls.MaterialButton();
-            this.btn_pagos = new MaterialSkin.Controls.MaterialButton();
             this.pb_foto = new System.Windows.Forms.PictureBox();
             this.btn_Procedimiento = new MaterialSkin.Controls.MaterialButton();
             this.btn_citasp = new MaterialSkin.Controls.MaterialButton();
             this.btn_agendar = new MaterialSkin.Controls.MaterialButton();
             this.btn_reprogramar = new MaterialSkin.Controls.MaterialButton();
-            this.btn_cancelar = new MaterialSkin.Controls.MaterialButton();
             this.lb_c = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).BeginInit();
             this.SuspendLayout();
@@ -71,27 +69,6 @@
             this.btn_seguimiento.UseAccentColor = false;
             this.btn_seguimiento.UseVisualStyleBackColor = true;
             this.btn_seguimiento.Click += new System.EventHandler(this.btn_seguimiento_Click);
-            // 
-            // btn_pagos
-            // 
-            this.btn_pagos.AutoSize = false;
-            this.btn_pagos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_pagos.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btn_pagos.Depth = 0;
-            this.btn_pagos.HighEmphasis = true;
-            this.btn_pagos.Icon = null;
-            this.btn_pagos.Location = new System.Drawing.Point(404, 178);
-            this.btn_pagos.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btn_pagos.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btn_pagos.Name = "btn_pagos";
-            this.btn_pagos.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_pagos.Size = new System.Drawing.Size(136, 24);
-            this.btn_pagos.TabIndex = 25;
-            this.btn_pagos.Text = "Pagos";
-            this.btn_pagos.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btn_pagos.UseAccentColor = false;
-            this.btn_pagos.UseVisualStyleBackColor = true;
-            this.btn_pagos.Click += new System.EventHandler(this.btn_pagos_Click);
             // 
             // pb_foto
             // 
@@ -153,12 +130,12 @@
             this.btn_agendar.Depth = 0;
             this.btn_agendar.HighEmphasis = true;
             this.btn_agendar.Icon = null;
-            this.btn_agendar.Location = new System.Drawing.Point(256, 221);
+            this.btn_agendar.Location = new System.Drawing.Point(265, 208);
             this.btn_agendar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_agendar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_agendar.Name = "btn_agendar";
             this.btn_agendar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_agendar.Size = new System.Drawing.Size(136, 24);
+            this.btn_agendar.Size = new System.Drawing.Size(127, 52);
             this.btn_agendar.TabIndex = 30;
             this.btn_agendar.Text = "agendar";
             this.btn_agendar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -174,39 +151,18 @@
             this.btn_reprogramar.Depth = 0;
             this.btn_reprogramar.HighEmphasis = true;
             this.btn_reprogramar.Icon = null;
-            this.btn_reprogramar.Location = new System.Drawing.Point(404, 221);
+            this.btn_reprogramar.Location = new System.Drawing.Point(525, 208);
             this.btn_reprogramar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btn_reprogramar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn_reprogramar.Name = "btn_reprogramar";
             this.btn_reprogramar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_reprogramar.Size = new System.Drawing.Size(136, 24);
+            this.btn_reprogramar.Size = new System.Drawing.Size(136, 52);
             this.btn_reprogramar.TabIndex = 32;
-            this.btn_reprogramar.Text = "reprogramar";
+            this.btn_reprogramar.Text = "Reprogramar / cancelar";
             this.btn_reprogramar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btn_reprogramar.UseAccentColor = false;
             this.btn_reprogramar.UseVisualStyleBackColor = true;
             this.btn_reprogramar.Click += new System.EventHandler(this.btn_reprogramar_Click);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.AutoSize = false;
-            this.btn_cancelar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_cancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btn_cancelar.Depth = 0;
-            this.btn_cancelar.HighEmphasis = true;
-            this.btn_cancelar.Icon = null;
-            this.btn_cancelar.Location = new System.Drawing.Point(561, 221);
-            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btn_cancelar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btn_cancelar.Size = new System.Drawing.Size(136, 24);
-            this.btn_cancelar.TabIndex = 33;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btn_cancelar.UseAccentColor = false;
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // lb_c
             // 
@@ -224,14 +180,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 391);
             this.Controls.Add(this.lb_c);
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_reprogramar);
             this.Controls.Add(this.btn_agendar);
             this.Controls.Add(this.btn_citasp);
             this.Controls.Add(this.btn_Procedimiento);
             this.Controls.Add(this.lb_bien);
             this.Controls.Add(this.btn_seguimiento);
-            this.Controls.Add(this.btn_pagos);
             this.Controls.Add(this.pb_foto);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmPerfil_Inicio";
@@ -248,13 +202,11 @@
 
         private System.Windows.Forms.Label lb_bien;
         private MaterialSkin.Controls.MaterialButton btn_seguimiento;
-        private MaterialSkin.Controls.MaterialButton btn_pagos;
         private System.Windows.Forms.PictureBox pb_foto;
         private MaterialSkin.Controls.MaterialButton btn_Procedimiento;
         private MaterialSkin.Controls.MaterialButton btn_citasp;
         private MaterialSkin.Controls.MaterialButton btn_agendar;
         private MaterialSkin.Controls.MaterialButton btn_reprogramar;
-        private MaterialSkin.Controls.MaterialButton btn_cancelar;
         private System.Windows.Forms.Label lb_c;
     }
 }

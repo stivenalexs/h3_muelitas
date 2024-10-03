@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,7 +62,7 @@ namespace PryLogicaNegocios
                 ObjCita.MensajeError = ObjDataBase.MensajeErrorOS;
             }
         }
-
+       
         #region  MetodosCrud
         public void Create(ref ClsCita ObjCita)
         {
@@ -151,10 +152,9 @@ namespace PryLogicaNegocios
 
             };
             ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "4", ObjCita.Cod_Cita1);
-            ObjDataBase.DtParametros.Rows.Add(@"@Doc_Profesional", "15", ObjCita.Doc_Profesional1);
             ObjDataBase.DtParametros.Rows.Add(@"@Fecha_Cita", "11", ObjCita.Fecha_Cita1);
             ObjDataBase.DtParametros.Rows.Add(@"@Hora_Cita", "12", ObjCita.Hora_Cita1);
-
+                
             Ejecutar(ref ObjCita);
         }
         #endregion
