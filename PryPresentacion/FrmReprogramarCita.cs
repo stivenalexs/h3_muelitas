@@ -2,6 +2,7 @@
 using PryEntidades;
 using PryLogicaNegocio;
 using PryLogicaNegocios;
+using PryPresentacion.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,8 @@ namespace PryPresentacion
         private void CargarListacitas()
         {
 
-            citaLn.Buscar_Citas_Paciente(ref cita,persona.ID_Persona1);
+            citaLn.Buscar_Citas_Paciente(ref cita, persona.ID_Persona1);
+
             if (cita.MensajeError == null)
             {
                 dtvListaCitas.DataSource = cita.DtResultados;
@@ -56,7 +58,7 @@ namespace PryPresentacion
         {
             cita = new ClsCita()
             {
-                Doc_Profesional1 = profesional.Documento_Pro1,
+                Cod_Cita1 = int.Parse(txb_codigo.Text),
                 Fecha_Cita1 = DateTime.Parse(date_fecha.Text),
                 Hora_Cita1 = TimeSpan.Parse(date_hora.Text)
             };
@@ -70,12 +72,39 @@ namespace PryPresentacion
             {
                 MessageBox.Show(cita.MensajeError, "Error cita", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void txb_codigo_KeyPress(object sender, KeyPressEventArgs e)
         {
+        }
 
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar?", "Confirmar eliminacion",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                cita = new ClsCita()
+                {
+                    Cod_Cita1 = int.Parse(txb_codigo.Text)
+                };
+                citaLn.Delete(ref cita);
+                if (cita.MensajeError == null)
+                {
+                    MessageBox.Show("la cita fue ELIMINADA correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarListacitas();
+                }
+                else
+                {
+                    MessageBox.Show(cita.MensajeError, "Error cita", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void txb_codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClsControl.solo_numeros(e);
         }
     }
 }

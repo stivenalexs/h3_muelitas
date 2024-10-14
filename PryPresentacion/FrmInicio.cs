@@ -23,6 +23,8 @@ namespace PryPresentacion
         private void FrmInicio_Load(object sender, EventArgs e)
         {
 
+            btn_volver.Enabled = false;
+            btn_volver.Visible = false;
         }
 
         private void btn_iniciar_Click(object sender, EventArgs e)
@@ -34,7 +36,7 @@ namespace PryPresentacion
             {
                 if (persona.DtResultados.Rows.Count > 0)
                 {
-                    MessageBox.Show("bienvenido pai ", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("bienvenido", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FrmPerfil perfil = new FrmPerfil(persona,this);
                     perfil.Show();
                     this.Hide();
@@ -66,6 +68,27 @@ namespace PryPresentacion
             txb_usuario.Enabled = true;
             txb_contraseña.Enabled = true;
             btn_iniciar.Enabled = true;
+            //
+            btn_volver.Enabled = true;
+            btn_volver.Visible = true;
+        }
+
+        private void btn_volver_Click(object sender, EventArgs e)
+        {
+            btn_registrar.Visible = true;
+            btn_ingresar.Visible = true;
+            btn_registrar.Enabled = true;
+            btn_ingresar.Enabled = true;
+            //
+            txb_usuario.Visible = false;
+            txb_contraseña.Visible = false;
+            btn_iniciar.Visible = false;
+            txb_usuario.Enabled = false;
+            txb_contraseña.Enabled = false;
+            btn_iniciar.Enabled = false;
+            //
+            btn_volver.Enabled = false;
+            btn_volver.Visible = false;
         }
     }
 }

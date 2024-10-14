@@ -62,14 +62,10 @@ namespace PryPresentacion
             else if (profesional.Horario1 != null)
             {
                 lb_c.Visible = false;
-                btn_pagos.Visible = false;
-                btn_pagos.Enabled = false;
                 btn_agendar.Visible = false;
                 btn_agendar.Enabled = false;
                 btn_reprogramar.Visible = false;
                 btn_reprogramar.Enabled = false;
-                btn_cancelar.Visible = false;
-                btn_cancelar.Enabled = false;
             }
         }
 
