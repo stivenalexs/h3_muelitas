@@ -2,6 +2,7 @@
 using PryEntidades;
 using PryLogicaNegocio;
 using PryLogicaNegocios;
+using PryPresentacion.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,6 +96,11 @@ namespace PryPresentacion
                     MessageBox.Show(cita.MensajeError, "Error cita", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void txb_codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ClsControl.solo_numeros(e);
         }
     }
 }

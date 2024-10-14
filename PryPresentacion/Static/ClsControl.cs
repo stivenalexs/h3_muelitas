@@ -54,6 +54,7 @@ namespace PryPresentacion.Static
         }
         public static void LlenarComboBox(ClsProfecional ObjProfesional, ComboBox c)
         {
+            c.Text = "";
             // Asegúrase de que DtResultados no sea nulo y tenga filas
             if (ObjProfesional.DtResultados != null && ObjProfesional.DtResultados.Rows.Count > 0)
             {

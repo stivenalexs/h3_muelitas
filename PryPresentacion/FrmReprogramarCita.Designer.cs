@@ -48,7 +48,7 @@
             this.txb_codigo.Depth = 0;
             this.txb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txb_codigo.HideSelection = true;
-            this.txb_codigo.Hint = "codigo cita";
+            this.txb_codigo.Hint = "colocar codigo de la cita";
             this.txb_codigo.LeadingIcon = null;
             this.txb_codigo.Location = new System.Drawing.Point(554, 12);
             this.txb_codigo.MaxLength = 32767;
@@ -68,6 +68,7 @@
             this.txb_codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txb_codigo.TrailingIcon = null;
             this.txb_codigo.UseSystemPasswordChar = false;
+            this.txb_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_codigo_KeyPress);
             // 
             // btn_reprogramar
             // 
