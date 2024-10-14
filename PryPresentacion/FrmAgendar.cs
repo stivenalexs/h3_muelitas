@@ -59,7 +59,6 @@ namespace PryPresentacion
         private void cmb_tipocita_SelectedIndexChanged(object sender, EventArgs e)
         {
             profecionalLn.buscar_profesionales(ref profesional, cmb_tipocita.Text);
-            
             ClsControl.LlenarComboBox(profesional, cmb_profesional);
             //limitar horas 
             switch (cmb_tipocita.Text)

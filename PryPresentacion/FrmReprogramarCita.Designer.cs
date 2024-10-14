@@ -32,11 +32,15 @@
             this.btn_reprogramar = new MaterialSkin.Controls.MaterialButton();
             this.label_hora = new MaterialSkin.Controls.MaterialLabel();
             this.label_fecha = new MaterialSkin.Controls.MaterialLabel();
+            this.label_profesional = new MaterialSkin.Controls.MaterialLabel();
+            this.combo_profesional = new System.Windows.Forms.ComboBox();
             this.dtvListaCitas = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.date_fecha = new System.Windows.Forms.DateTimePicker();
             this.date_hora = new System.Windows.Forms.DateTimePicker();
             this.btn_eliminar = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lb_especialidad = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dtvListaCitas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,6 +120,28 @@
             this.label_fecha.TabIndex = 40;
             this.label_fecha.Text = "fecha";
             // 
+            // label_profesional
+            // 
+            this.label_profesional.AutoSize = true;
+            this.label_profesional.Depth = 0;
+            this.label_profesional.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label_profesional.Location = new System.Drawing.Point(556, 73);
+            this.label_profesional.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_profesional.MouseState = MaterialSkin.MouseState.HOVER;
+            this.label_profesional.Name = "label_profesional";
+            this.label_profesional.Size = new System.Drawing.Size(81, 19);
+            this.label_profesional.TabIndex = 39;
+            this.label_profesional.Text = "profesional";
+            // 
+            // combo_profesional
+            // 
+            this.combo_profesional.FormattingEnabled = true;
+            this.combo_profesional.Location = new System.Drawing.Point(559, 99);
+            this.combo_profesional.Margin = new System.Windows.Forms.Padding(2);
+            this.combo_profesional.Name = "combo_profesional";
+            this.combo_profesional.Size = new System.Drawing.Size(151, 21);
+            this.combo_profesional.TabIndex = 37;
+            // 
             // dtvListaCitas
             // 
             this.dtvListaCitas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -191,6 +217,9 @@
             this.Controls.Add(this.btn_reprogramar);
             this.Controls.Add(this.label_hora);
             this.Controls.Add(this.label_fecha);
+            this.Controls.Add(this.label_profesional);
+            this.Controls.Add(this.combo_profesional);
+
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmReprogramarCita";
             this.Text = "FrmReprogramarCita";
@@ -207,10 +236,16 @@
         private MaterialSkin.Controls.MaterialButton btn_reprogramar;
         private MaterialSkin.Controls.MaterialLabel label_hora;
         private MaterialSkin.Controls.MaterialLabel label_fecha;
+
+        private MaterialSkin.Controls.MaterialLabel label_profesional;
+        private System.Windows.Forms.ComboBox combo_profesional;
         private System.Windows.Forms.DataGridView dtvListaCitas;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DateTimePicker date_fecha;
         private System.Windows.Forms.DateTimePicker date_hora;
         private MaterialSkin.Controls.MaterialButton btn_eliminar;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel lb_especialidad;
+
     }
 }

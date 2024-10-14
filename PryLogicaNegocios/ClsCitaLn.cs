@@ -152,11 +152,13 @@ namespace PryLogicaNegocios
 
             };
             ObjDataBase.DtParametros.Rows.Add(@"@Cod_Cita", "4", ObjCita.Cod_Cita1);
+            ObjDataBase.DtParametros.Rows.Add(@"@Doc_Profesional", "15", ObjCita.Doc_Profesional1);
             ObjDataBase.DtParametros.Rows.Add(@"@Fecha_Cita", "11", ObjCita.Fecha_Cita1);
             ObjDataBase.DtParametros.Rows.Add(@"@Hora_Cita", "12", ObjCita.Hora_Cita1);
-                
+            ObjDataBase.DtParametros.Rows.Add(@"@Doc_Paciente", "15", documento);
             Ejecutar(ref ObjCita);
         }
+      
         #endregion
     }
 }

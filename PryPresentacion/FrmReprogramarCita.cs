@@ -34,7 +34,7 @@ namespace PryPresentacion
             InitializeComponent();
             persona = p;
         }
-
+        
         private void FrmReprogramarCita_Load(object sender, EventArgs e)
         {
             CargarListacitas();
@@ -43,6 +43,7 @@ namespace PryPresentacion
         {
 
             citaLn.Buscar_Citas_Paciente(ref cita, persona.ID_Persona1);
+
             if (cita.MensajeError == null)
             {
                 dtvListaCitas.DataSource = cita.DtResultados;
@@ -71,7 +72,10 @@ namespace PryPresentacion
             {
                 MessageBox.Show(cita.MensajeError, "Error cita", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void txb_codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
